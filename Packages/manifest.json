@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.unity.ide.rider": "3.0.16",
     "com.unity.inputsystem": "1.0.0",
     "com.unity.textmeshpro": "3.0.1",
     "com.unity.ugui": "1.0.0",
@@ -29,5 +30,4 @@
     "com.unity.modules.vehicles": "1.0.0",
     "com.unity.modules.video": "1.0.0"
   }
-
 }
