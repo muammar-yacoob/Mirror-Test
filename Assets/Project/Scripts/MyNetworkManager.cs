@@ -1,23 +1,34 @@
 using Mirror;
 using UnityEngine;
 
-public class MyNetworkManager : NetworkManager
+namespace BornCore.MirrorDev
 {
-    public override void OnServerConnect(NetworkConnectionToClient conn)
+    public class MyNetworkManager : MonoBehaviour
     {
-        base.OnServerConnect(conn);
-        Debug.Log($"Connected as Server: {conn.address}");
+        [SerializeField] GameObject treePrefab;
+
+        public void ClientConnect()
+        {
+            NetworkClient.RegisterPrefab(treePrefab);
+            NetworkClient.RegisterHandler<ConnectMessage>(OnClientConnect);
+            NetworkClient.Connect("localhost");
+        }
+
+
+        private void OnClientConnect(string obj)
+        {
+            throw new System.NotImplementedException();
+        }
+
+
+        void OnClientConnect(ConnectMessage msg)
+        {
+            Debug.Log("Connected to server: ");
+        }
+
     }
 
-    public override void OnClientConnect()
+    public struct ConnectMessage : NetworkMessage
     {
-        base.OnClientConnect();
-        Debug.Log($"Client connected. Players:{numPlayers}");
-    }
-
-    public override void OnServerAddPlayer(NetworkConnectionToClient conn)
-    {
-        base.OnServerAddPlayer(conn);
-        Debug.Log($"Client connected. Players:{numPlayers}");
     }
 }

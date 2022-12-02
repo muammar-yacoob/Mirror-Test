@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 
-public class PlayerAuthority : NetworkBehaviour
+namespace BornCore.MirrorDev
 {
+    public class PlayerAuthority : NetworkBehaviour
+    {
         [SerializeField] private GameObject crown;
 
         public override void OnStartLocalPlayer()
@@ -30,3 +30,4 @@ public class PlayerAuthority : NetworkBehaviour
             print($"Has State: {isOwned}");
         }
     }
+}
